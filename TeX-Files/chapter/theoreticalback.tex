@@ -1,4 +1,50 @@
+Within the scientific community, food fortification methods are broadly categorized into three distinct, chronological phases: pre-fortification, process-fortification, and post-fortification. 
+While the primary focus of this study lies within the post-fortification phase, a comprehensive understanding of the preceding stages is needed to contextualize the interdependent nature of micronutrient retention. \par 
+Pre-fortification is understood as any action that happens prior to the processing of food. This describes in general the process of biofortification which is achieved through various methods such as agronomic practices, conventional plant breeding or genetic engineering (Ofori et al., 2022). Process-fortification refers to the active addition of nutrients in the food processing or directly to a ready-to-consume food vehicle. 
+\par 
+In contrast, the post-fortification phase is the retention and stability of these added micronutrients.  These are on the one hand considered to be extrinsic, storage-related factors such as temperature, humidity. light exposure, time, packaging material and microbiological environment. On the other hand there are also intrinsically processes that are linked to the prior phases. For instance, the specific food matrix established during pre- or process-fortification heavily dictates the ultimate stability of the nutrients.  Consequently, this framework aims to integrate these preceding structural dependencies into the overarching evaluation of micronutrient losses under varying storage conditions. 
+\par 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={rectangle, draw, minimum width=2.5cm, minimum height=1cm, align=center, thick},
+    arrow/.style={-{Stealth}, thick}
+]
 
-staple food: is considered to be food, which is being consumed as a main part of the diet and can vary regionally and seasonally. To be more specific we define \textit{staple food} as the following foods: Wheat flour, maize flour, rice, potatoe, sweet potatoe, maniok, salt
-\par \vspace*{2mm} \noindent
-fortification: is considered to be when you schmeisst ein paar mikronährstoffe into your lebensmiddel
+    % Knoten
+    \node[box,align=center] (post) {PRE-\\ \footnotesize FORTIFICATION};
+    \node[box, right=of post,align=center] (during) {PROCESS-\\ \footnotesize FORTIFICATION};
+    \node[box, right=of during,align=center] (pre) {POST-\\ \footnotesize FORTIFICATION};
+
+    % Verbindungen
+    \draw[arrow] (post) -- (during);
+    \draw[arrow] (during) -- (pre);
+
+    % Beschriftungen oben
+    \node[above=0.3cm of post,align=center] (inc_f1) {\footnotesize action that increases \\ fortification};
+    \draw[arrow] (inc_f1) -- (post);
+    
+    \node[above=0.3cm of during,align=center] (inc_f2) {\footnotesize action that increases \\ fortification};
+    \draw[arrow] (inc_f2) -- (during);
+    
+    \node[above=0.3cm of pre,align=center] (inc_r) {\footnotesize action that increases \\ retention};
+    \draw[arrow] (inc_r) -- (pre);
+
+    % Beschriftung unten (Action & Curved Arrow)
+    \node[below=0.8cm of post, font=\bfseries, align=center] (action) {action};
+    \node[below=0.8cm of during, font=\bfseries, align=center] (action2) {action};
+    \draw[arrow,dashed,  thick, scale=0.8] (action) -- (post);
+    \draw[arrow,dashed, thick, scale=0.8] (action2) -- (during);
+    
+    \draw[-Latex,dashed, thick] ($(post.south)
+    +(0.1,0)$).. controls ($(post.south) + (0,-2)$) and ($(pre.south) + (0,-2)$) .. ($(pre.south)+(0.2,0)$) 
+        node[midway, below,align=center, scale=0.7] {increases \\ retention};
+\draw[-Latex,dashed,thick] ($(during.south)
+    +(0.1,0)$) .. controls ($(during.south) + (0,-1)$) and ($(pre.south) + (0,-1)$) .. (pre.south) 
+        node[midway, above, align=center, scale=0.7] {increases \\ retention};
+        
+\end{tikzpicture}
+\caption{Schematic representation of the various fortification-stages in chronological order}
+\label{fortistages}
+\end{figure}
