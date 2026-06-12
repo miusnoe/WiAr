@@ -1,0 +1,198 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{F://LaTeX-Files/shiet/basic_eng.tex}
+\input{F://LaTeX-Files/shiet/biblatex_anfang.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\addbibresource{build/wiar.bib}
+%\nocite{*}
+
+
+\usetikzlibrary{arrows.meta}
+
+\usepackage{times}
+\usepackage[font={small}]{caption}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+\usepackage{booktabs}
+\usepackage[
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+%    kerning=true,
+%    spacing=true,
+%    factor=1100,
+%    stretch=30,
+%    shrink=20
+]{microtype}
+
+\microtypecontext{spacing=nonfrench}
+
+
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,
+		includeheadfoot,
+		headheight=15pt
+		}
+\setlength{\parindent}{1cm}
+\setlength{\tabcolsep}{10pt}
+
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\absatz}{\par \vspace*{6pt}} %6pt ODER Leerzeile
+
+\titlecontents{section}[2.8em]
+		{\mdseries}
+		{\contentslabel{2.8em}}
+		{}
+		{\titlerule*[2mm]{.} \contentspage}
+\titlecontents{subsection}[4.2em]
+		{\mdseries}
+		{\contentslabel{2.8em}}
+		{}
+		{\titlerule*[2mm]{.} \contentspage}		
+
+
+\titleformat{\section}[hang]
+		{\Large \sffamily \bfseries}
+		{\thesection}
+		{4mm}
+		{}
+\titleformat{\subsection}[hang]
+		{\large \sffamily \bfseries}
+		{\thesubsection}
+		{4mm}
+		{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[OR]{\thepage}
+\fancyhead[OL]{\leftmark}
+
+
+\begin{document}
+
+
+\input{chapter/cover}
+
+\thispagestyle{empty}
+\newgeometry{left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm,
+		includeheadfoot,
+		headheight=15pt
+		}
+%\section{Abstract}
+%
+%\pagebreak
+%\thispagestyle{empty}
+%
+%\tableofcontents
+%
+
+\pagebreak
+
+\setcounter{page}{1}
+
+\section{Introduction}
+\input{chapter/introduction.tex}
+%
+\section{Theoretical Background}
+\input{chapter/theoreticalback.tex}
+
+
+\pagebreak
+\section{Methods}
+\input{chapter/methods.tex}
+\pagebreak
+
+\begin{figure}[h]
+\centering
+\resizebox{.8\textwidth}{!}{
+\input{chapter/prismaflow.tex}
+}
+\caption{PRISMA-Flowchart}
+\end{figure}
+
+
+
+
+\pagebreak
+\section{Discussion}
+\subsection{Summary of temperature related data}
+\subsection{Summary of packaging related data}
+\subsection{Evaluation of similarities and differences}
+\subsection{Outlook: Fortification in context of nutrional feasability}
+Legal aspects vs health related aspects: Is there really a need to hit the exact dose? Is there any law that prohibits mitigating the needs for overages caused by producers' sheer apprehension of failing to meet the required dosage? 
+\subsection{Limitations}
+Fruits and vegetables are by nature not stable over prolonged storage;; not sufficient number of studies
+
+\section{Conclusion}
+
+
+
+
+
+
+
+
+
+
+
+\printbibliography
+
+\pagebreak
+
+\input{chapter/appendix}
+
+
+\pagebreak
+\section*{Attachment}
+\begin{table}[h]
+\caption{Literature included after abstract}
+\begin{spacing}{1.3}
+\footnotesize
+\begin{tabular}{p{\dimexpr 0.05\linewidth-2\tabcolsep}p{\dimexpr 0.3\linewidth-2\tabcolsep} 
+                   p{\dimexpr 0.25\linewidth-2\tabcolsep} 
+                   p{\dimexpr 0.4\linewidth-2\tabcolsep} }
+\toprule
+\textbf{\#}&\textbf{Authors/Year} & \textbf{Food vehicle} & \textbf{Topic} \\ \midrule
+&\multicolumn{3}{l}{\textit{Search String 2}} \\ \midrule
+1& \cite{chepkoech} & Maize Flour & Influence of different storage condtions on vitamin retention \\ 
+2& \cite{li2coatsalt} & Salt, Bouillon Cubes & Potential influence of physical properties like shape and coating thickness of granules \\ 
+3& \cite{li3capsalt} & Salt & Influence of different storage conditions on capsulated iron in salt \\ 
+4& \cite{li4daylight} & Sunflower Oil & Ambient Storage with and without daylight \\ 
+5& \cite{li5cocoyam} & Cocoyam leaves & Influence of different storage condtions on nutritional properties \\
+\midrule
+&\multicolumn{3}{l}{\textit{Search String 1}} \\ \midrule
+6 & \cite{noodle} & Pasta & Influence of catfishpowder and cooking method on ambient storage stability \\
+7 & \cite{cookie} & Baked Goods (Cookies) & Influence of different storage conditions on macro- and micronutrient retention \\
+8 & \cite{gari} & Gari (Cassava Flour) & Vitamin A retention \\ \bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
+
+
+%
+%\begin{table}[h]
+%\caption{Literature excluded after abstract}
+%\begin{spacing}{1.3}
+%\footnotesize
+%\begin{tabular}{p{\dimexpr 0.05\linewidth-2\tabcolsep}p{\dimexpr 0.3\linewidth-2\tabcolsep} 
+%                   p{\dimexpr 0.25\linewidth-2\tabcolsep} 
+%                   p{\dimexpr 0.4\linewidth-2\tabcolsep} }
+%\toprule
+%\textbf{\#} &\textbf{Authors/Year} & \textbf{Food vehicle} & \textbf{Topic} \\ \midrule
+%&\multicolumn{3}{l}{\textit{Search String 1}} \\ \midrule
+%1&Kumari et al., 2023 & Rice & Influence of phytic acid on fortification sufficiency \\ 
+%2&Ganachari et al., 2025 & Rice & Cooking stability \\ 
+%3&Yang et al., 2025 & Salt & Incompatibility between iron and iodine \\ 
+%4&Dipika et al., 2026 & Salt & Nutrional aspects on salt reduction and fortification \\
+%5&Anselmo et al., 2019 & Various & Encapsulation soluble in gastric acid \\ 
+%6&Ca\~nizares et al., 2026 & Rice & Ultrasound to enhance fortification \\ 
+%7&Belarbi et al., 2026 & Bread & Bioaccesibility \\ \midrule
+%&\multicolumn{3}{l}{\textit{Search String 2}} \\ \midrule
+%\end{tabular}
+%
+%\end{spacing}
+%\end{table}
+
+
+\end{document}

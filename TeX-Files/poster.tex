@@ -1,0 +1,85 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTeX-Files/shiet/basic_eng.tex}
+\input{F://LaTeX-Files/shiet/biblatex_anfang.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\addbibresource{build/wiar.bib}
+\usetikzlibrary{arrows.meta}
+\usepackage{titletoc}
+
+\geometry{a3paper,left=3cm,right=3cm,top=3.5cm,bottom=2.25cm}
+\thispagestyle{empty}
+\renewcommand*{\bibfont}{\normalfont\scriptsize}
+\setlength\columnsep{5mm}
+
+\makeatletter
+\newcommand{\addfaketocnum}[3]{%
+  % #1 = Ebene (section), #2 = Nummer (1.2), #3 = Text
+  % \numberline sorgt dafür, dass titletoc die Nummer als Präfix erkennt
+  \addtocontents{toc}{\protect\contentsline{#1}{\protect\numberline{#2}#3}{}{\@currentHref}}%
+}
+\makeatother
+
+\titlecontents{section}[2.8em]
+    {\mdseries}
+    {\contentslabel{2.8em}} % Hier landet deine Nummer automatisch
+    {}
+    {} % <-- HIER WURDEN \titlerule UND \contentspage ENTFERNT
+
+\titlecontents{subsection}[4.2em]
+    {\mdseries}
+    {\contentslabel{2.8em}}
+    {}
+    {} % <-- HIER AUCH LEER
+    
+\titlecontents{subsubsection}[5.6em]
+    {\mdseries}
+    {\contentslabel{2.8em}}
+    {}
+    {} % <-- HIER AUCH LEER
+\begin{document}
+
+\AddToHookNext{shipout/background}{
+\begin{tikzpicture}[remember picture, overlay]
+ \draw[draw=none,fill=uniblau!70, shift={(current page.north west)}] (-3,0) rectangle (32,-5);
+ \node[white,align=center,font=\linespread{1.7}\selectfont](a)at(15,-3){\Huge \sffamily How is retention of micronutrients in fortified foods \\  \Huge \sffamily influenced by storage conditions? \\ \large - Current findings and perspectives from a systematic review -};
+\end{tikzpicture}
+}
+
+\vspace*{5mm}
+
+\section{Introduction}
+\begin{multicols}{3}
+\input{chapter/introduction} 
+\end{multicols}
+
+\ppbig
+
+\begin{minipage}[t]{.475\textwidth}
+
+\section{Methods}
+%\begin{figure}[t]
+%\centering
+\resizebox{.9\textwidth}{!}{
+\input{chapter/prismaflow.tex}
+}
+%\caption{PRISMA-Flowchart}
+%\end{figure}
+%\section{References}
+%\begin{multicols}{2}
+%\printbibliography[heading=none]
+%
+%\end{multicols}
+
+\end{minipage}%
+\hspace*{13mm}
+\begin{minipage}[t]{.48\textwidth}
+
+\section{Outline}
+
+
+\input{chapter/faketoc.tex}
+
+\end{minipage}%
+%\hspace*{5mm}
+\end{document}

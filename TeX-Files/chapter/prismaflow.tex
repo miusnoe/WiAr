@@ -1,0 +1,97 @@
+\begin{tikzpicture}[>=Latex, font={\sf \small}]
+
+\tikzstyle{bluerect} = [rectangle, rounded corners, minimum width=1.5cm, minimum height=0.75cm, text centered, draw=black, fill=cyan!60!gray!45!white, rotate=90, font=\sffamily]
+
+\tikzstyle{roundedrect} = [rectangle, rounded corners, minimum width=12cm, minimum height=1cm, text centered, draw=black, font=\sffamily]
+
+\tikzstyle{textrect} = [rectangle, minimum width=5.25cm, text width=5.24cm, minimum height=1cm, draw=black, font={\sffamily \footnotesize},inner sep=3mm]
+
+\node (top1) at (0, 11.5cm) [draw, roundedrect, fill=yellow!80!red!70]
+  {Identification of studies via database and registers};
+
+\node (r1blue) at (-6.75cm, 8.0cm) [draw, bluerect, minimum width=4.5cm]{Identification};
+
+\node (r1left) at (-3.25cm, 8.0cm) [draw, textrect, minimum height=3.5cm]
+  {Records identified from Database 'Google Scholar'
+		($n=297$) \vspace*{2mm}
+ \\ Search-string 1 ($n=167$)
+ \\{\tiny \itshape 'micronutrient\S' AND 'ambient storage' AND 'fortified' -fruits}
+ \\ Search-string 2 ($n=130$)
+ \\{\tiny \itshape 'micronutrient\S stability' AND 'micronutrient\S retention' AND 'food fortification'}
+  };
+
+\node (r1right) at (3.25, 8.0cm) [draw, textrect, minimum height=3cm]
+  {Records removed \textit{before screening} ($n=173$)
+    \begin{itemize}
+    \item Duplicate records removed ($n=0$)
+	\item through Journal-Ranking ($n=144$)
+	    %vorher ($n=114$) und jetzt + 30
+	\item Theses and books ($n=25$)
+    \item Records not written in english  ($n=4$)
+    %vorher nicht englisch = 2 jetzt 2+2=4
+    \end{itemize} 
+  };
+
+\node (r2blue) at (-6.75cm, 1.5cm) [draw, bluerect, minimum width=7.5cm]
+  {Screening};
+
+\node (r2left) at (-3.25cm, 4.0cm) [draw, textrect, minimum height=1.5cm]
+  {Records screened
+  ($n=124$)
+%VORHER  ($n=51$)
+  };
+
+\node (r2right) at (3.25, 4.0cm) [draw, textrect, minimum height=1.5cm]
+  {
+  Records marked as ineligible
+\begin{itemize}
+\item through subject matter ($n=41$)
+\end{itemize}
+  };
+
+%\node (r3left) at (-3.25cm, 2.5cm) [draw, textrect, minimum height=1.5cm]
+%  {Reports sought for retrieval ($n=$)};
+
+%\node (r3right) at (3.25, 2.5cm) [draw, textrect, minimum height=1.5cm]
+%  {Not retrieved ($n=$)};
+
+
+\node (r4left) at (-3.25cm, 0cm) [draw, textrect, minimum height=1.5cm]
+  {Reports assessed for eligibility
+  ($n=83$) % ALS BEISPIEL WEITERGERECHNET
+%VORHER   ($n=10$)
+   };
+
+\node (r4right) at (3.25, 0cm) [draw, textrect, minimum height=1.5cm]
+  {Reports Excluded: 
+    \begin{itemize}
+    \item Fruits or vegetables ($n=2$)
+%    \item Forschungsfrage wird nicht bearbeitet ($n=1$) %muss dann später noch oben addiert werden 
+%    \item Reason 3 ($n=$)
+%    \item etc.
+    \end{itemize}     
+  };
+
+
+\node (r5blue) at (-6.75cm, -4.5cm) [draw, bluerect, minimum width=2cm]
+  {Included};
+
+\node (r5left) at (-3.25cm, -4.5cm) [draw, textrect, minimum height=2cm]
+  {Reports included in review: \\ 
+	$n=N/A$  \RA pending processing
+%   $n= 7$ \\ 
+   };
+
+
+% Draw arrows between nodes:
+\draw[thick, ->] (r1left) -- (r1right);
+\draw[thick, ->] (r1left) -- (r2left);
+\draw[thick, ->] (r2left) -- (0.35,4);
+%\draw[thick, ->] (r2left) -- (r3left);
+%\draw[thick, ->] (r3left) -- (r3right);
+%\draw[thick, ->] (r3left) -- (r4left);
+\draw[thick, ->] (r2left) -- (r4left);
+\draw[thick, ->] (r4left) -+ (0.35,0);
+\draw[thick, ->] (r4left) -- (r5left);
+
+\end{tikzpicture}

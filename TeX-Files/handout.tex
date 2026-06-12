@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTeX-Files/shiet/basic_eng.tex}
+\input{F://LaTeX-Files/shiet/biblatex_anfang.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\addbibresource{build/wiar.bib}
+%\nocite{*}
+
+
+\usetikzlibrary{arrows.meta}
+
+\usepackage{times}
+\usepackage[font={small}]{caption}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+\usepackage{microtype}
+
+\microtypecontext{spacing=nonfrench}
+\renewcommand*{\bibfont}{\normalfont\footnotesize}
+\setlength\columnsep{8mm}
+
+\newgeometry{left=3cm,right=3cm,top=3cm,bottom=3cm,
+%		includeheadfoot,
+%		headheight=15pt
+		}
+\setlength{\parindent}{0.75cm}
+
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\absatz}{\par \vspace*{6pt}} %6pt ODER Leerzeile
+\makeatletter
+\newcommand{\addfaketocnum}[3]{%
+  % #1 = Ebene (section), #2 = Nummer (1.2), #3 = Text
+  % \numberline sorgt dafür, dass titletoc die Nummer als Präfix erkennt
+  \addtocontents{toc}{\protect\contentsline{#1}{\protect\numberline{#2}#3}{}{\@currentHref}}%
+}
+\makeatother
+
+\titlecontents{section}[2.8em]
+    {\mdseries}
+    {\contentslabel{2.8em}} % Hier landet deine Nummer automatisch
+    {}
+    {} % <-- HIER WURDEN \titlerule UND \contentspage ENTFERNT
+
+\titlecontents{subsection}[4.2em]
+    {\mdseries}
+    {\contentslabel{2.8em}}
+    {}
+    {} % <-- HIER AUCH LEER
+    
+\titlecontents{subsubsection}[5.6em]
+    {\mdseries}
+    {\contentslabel{2.8em}}
+    {}
+    {} % <-- HIER AUCH LEER
+\title{How is retention of micronutrients in fortified foods influenced by storage conditions?}
+\author{Leander Ihle, Samuel Knorr and Lars Wombacher}		
+		
+\begin{document}
+
+\maketitle
+\section{Introduction}
+%\begin{multicols}{2}
+\input{chapter/introduction}
+
+%\end{multicols}
+\pagebreak
+\section{Outline}
+%\begin{multicols}{2}
+
+\input{chapter/faketoc.tex}
+
+%\end{multicols}
+\pagebreak
+
+\printbibliography
+
+
+\end{document}
