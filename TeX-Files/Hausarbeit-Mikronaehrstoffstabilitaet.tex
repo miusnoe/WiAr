@@ -5,7 +5,8 @@
 \input{F://LaTeX-Files/shiet/colors.tex}
 \addbibresource{build/wiar.bib}
 %\nocite{*}
-
+%\usepackage[nottoc,numbib]{tocbibind}
+%\usepackage[toc,page]{appendix}
 
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
 
@@ -80,11 +81,11 @@
 		}
 %\section{Abstract}
 %
-%\pagebreak
-%\thispagestyle{empty}
-%
-%\tableofcontents
-%
+\pagebreak
+\thispagestyle{empty}
+
+\tableofcontents
+
 
 \pagebreak
 
@@ -136,17 +137,19 @@
 
 
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \pagebreak
-
+\appendix
+%\section*{Appendices}
+\section{Declaration of authorship}
 \input{chapter/appendix}
 
 
 \pagebreak
-\section*{Attachment}
+\section{Included work}
 \begin{table}[h]
-\caption{Literature included after abstract}
+\caption{PRISMA-Guideline: Literature included after abstract}
 \begin{spacing}{1.3}
 \footnotesize
 \begin{tabular}{p{\dimexpr 0.05\linewidth-2\tabcolsep}p{\dimexpr 0.3\linewidth-2\tabcolsep} 
