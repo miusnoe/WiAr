@@ -1,0 +1,172 @@
+\usepackage[english]{babel}
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry} %NICHT IN KEMIE2
+
+
+%\usepackage{microtype} %schöneres typesetting  mit [stretch=10] für nur 1% anstelle von 2%
+%\usepackage{lmodern} %Latin Modern FONT
+%\usepackage{pifont} %schönere Font
+
+
+
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+
+\usepackage{titlesec} %Um Section, etc bearbeiten zu können
+\usepackage{setspace}
+\usepackage{enumitem} %enumerate
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{arydshln}
+
+%\renewcommand{\ttdefault}{lmtt} %Schriftart wird geändert zu Latin Modern Typewriter
+
+
+\hypersetup{hidelinks,
+			colorlinks=true,
+			linkcolor=black,
+			citecolor=miudiutex,
+			urlcolor=miugray2
+			}
+
+\setlength{\parindent}{0pt}
+\setcounter{section}{0}
+
+
+\titlespacing*{\section}{0pt}{20mm}{6mm}
+\titlespacing*{\subsection}{0pt}{6mm}{3mm}
+\titlespacing*{\subsubsection}{0pt}{3mm}{0mm}
+
+
+
+%\definecolor{miudiutex}{HTML}{2f3d39}
+\definecolor{miudiutex}{HTML}{1d2926}
+\definecolor{miugray}{HTML}{b4cccf}
+\definecolor{miugray2}{HTML}{4d7365}
+\definecolor{red}{HTML}{cf1f5c}
+\definecolor{green}{HTML}{00A36C}
+\definecolor{delphinidin}{HTML}{315794}
+\definecolor{pelargonidin}{HTML}{b33807}
+\definecolor{cyanidin}{HTML}{ba0746}
+\definecolor{petunidin}{HTML}{b56fed}
+
+
+
+\raggedcolumns %wichtig für Multicolumns
+
+
+%================================
+% SYMBOLS
+%================================
+
+\newcommand{\RA}{$\rightarrow$~}
+\newcommand{\RL}{$\rightleftharpoons$~}
+\newcommand{\HARP}{\ding{226}~}
+%$\xrightarrow{2}$ %Pfeil mit 2 drüber
+
+
+%================================
+% SHORT COMMANDS (BOXES ; ETC)
+%================================
+
+
+\newcommand{\notiz}[1]{\begin{notizz}{}{}\begin{center}
+			{\color{miugray2!50!miudiutex}#1} \end{center}\end{notizz}}
+\newcommand{\zit}[2]{\begin{zitat*}{#1}{}\small #2 \end{zitat*}}
+
+\newcommand{\frage}[2]{\begin{qst*}{#1}{}\small #2 \end{qst*}}
+
+\newcommand{\unten}{\end{center} \tcblower \begin{center}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.5pt,miudiutex] (char) {\tiny #1};}}
+            
+\newcommand{\miusquare}{{\color{miugray2!50}\scriptsize $\blacksquare$}~}
+\newcommand{\miusquarp}{{\color{petunidin!50}\scriptsize $\blacktriangleright$}~}
+\newcommand{\niu}{\item[\miusquare]}
+\newcommand{\nip}{\item[\miusquarp]}
+
+%%%%% ABSAETZE
+
+\newcommand{\pps}{\par \vspace*{1mm}}
+\newcommand{\pp}{\par \vspace*{3mm}}
+\newcommand{\ppbig}{\par \vspace*{8mm}}
+\newcommand{\pphuge}{\par \vspace*{10mm}}
+
+%================================
+% FRAGE BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{qst}{Frage:}
+{%
+	enhanced,
+	breakable,
+	colback = gray!15!white,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2.5pt}{0pt}{red!70},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = black,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, gray!50!black},
+}
+{th}
+
+
+
+
+%================================
+% ZITAT BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{zitat}{Zitat}
+{%
+	enhanced,
+	breakable,
+	colback = gray!15!white,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2.5pt}{0pt}{black!70},
+	sharp corners,
+	detach title,
+%	before upper = \tcbtitle\par\smallskip,
+	coltitle = gray!50!black,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+%	separator sign none,
+	segmentation style={solid, gray!50!black},
+}
+{th}
+
+
+
+%================================
+% SIMPLE SCHWARZER RAHMEN BOX
+%================================
+
+
+\newcommand{\boxfr}[1]{
+	\begin{tcolorbox}[
+	drop shadow southeast,
+	enhanced,
+	colframe=black!50,
+	colback=white,
+	boxrule = 1pt, 
+%	toprule=0pt, bottomrule=0pt,rightrule=0pt,leftrule=0pt,
+	boxsep=5pt,
+	arc=1pt,
+	]
+	\begin{center}
+	#1
+	\end{center}
+	\end{tcolorbox}
+}

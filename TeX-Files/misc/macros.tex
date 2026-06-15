@@ -1,0 +1,611 @@
+
+%================================
+% SYMBOLS
+%================================
+
+\newcommand{\RA}{$\rightarrow$~}
+\newcommand{\RL}{$\rightleftharpoons$~}
+\newcommand{\HARP}{\ding{226}~}
+%$\xrightarrow{2}$ %Pfeil mit 2 drüber
+
+
+%================================
+% SHORT COMMANDS (BOXES ; ETC)
+%================================
+
+
+\newcommand{\info}[1]{\begin{note}{\color{miudiutex}#1}\end{note}}
+%\newcommand{\qsbig}[1]{\begin{qstion}{}{}\begin{center}
+%			#1 \end{center}\end{qstion}}
+\newcommand{\notiz}[1]{\begin{notizz}{}{}\begin{center}
+			{\color{miugray2!50!miudiutex}#1} \end{center}\end{notizz}}
+\newcommand{\klausur}[1]{\begin{klausurinfo}{}{}\begin{center}
+			#1 \end{center}\end{klausurinfo}}
+\newcommand{\dfn}[1]{\begin{defin}{}{}\begin{center}
+			#1 \end{center}\end{defin}}
+\newcommand{\gesetz}[2]{\begin{gestex}{}{}\begin{center}
+			#1 \end{center}\end{gestex}}
+\newcommand{\gergesetz}[1]{\begin{gesgex}{}{}\begin{center}
+			#1 \end{center}\end{gesgex}}
+\newcommand{\klaausur}[1]{\begin{klausurinfo}[width=.77\linewidth]{}{}\begin{center}
+			\footnotesize #1 \end{center}\end{klausurinfo}}
+\newcommand{\winfo}[1]{\begin{wichtig}{}{} \begin{center}
+#1 \end{center} \vspace*{0mm} \end{wichtig}}
+\newcommand{\zit}[2]{\begin{zitat}{#1}{}\small #2 \end{zitat}}
+
+
+
+\newcommand{\unten}{\end{center} \tcblower \begin{center}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.5pt,miudiutex] (char) {\tiny #1};}}
+            
+\newcommand{\miusquare}{{\color{miugray2!50}\scriptsize $\blacksquare$}~}
+\newcommand{\miusquarp}{{\color{petunidin!50}\scriptsize $\blacktriangleright$}~}
+\newcommand{\niu}{\item[\miusquare]}
+\newcommand{\nip}{\item[\miusquarp]}
+\newcommand{\mrk}[1]{{\color{petunitext!55!red}\textsc{#1}}}
+
+%%%%% ABSAETZE
+
+\newcommand{\pps}{\par \vspace*{1mm}}
+\newcommand{\pp}{\par \vspace*{3mm}}
+\newcommand{\ppbig}{\par \vspace*{8mm}}
+\newcommand{\pphuge}{\par \vspace*{10mm}}
+
+
+
+%================================
+% HEADER & FOOTER FUER UNI
+%================================
+\newcommand{\miusfoot}{
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\footrulewidth}{0.0mm}%
+  \fancyfoot[L]{\hspace*{-3cm} {\color{miugray2}\textbf{\thepage}}}%
+  \renewcommand{\headrulewidth}{0mm}%
+} 
+\pagestyle{plain}
+}
+
+\newcommand{\miushead}[2]{
+\miusquare #1 - 4.Semester - ELW \hfill 
+\includegraphics[width=60pt]{{F://LaTeX-Files/shiet/unibo}}
+\par \vspace*{-3mm}
+\hrulefill
+\par \vspace*{1mm}
+\par \vspace*{-4mm}
+\normalsize	
+	\begin{flushright}
+	\textbf{\miusquare #2}\par \vspace*{1.5mm}
+	\small	
+	\textit{Letzte Überarbeitung:} \par 
+	\footnotesize \today
+	\end{flushright}
+	\normalsize
+\par \vspace*{-8mm}
+}
+
+\newcommand{\sidebar}{
+\AddToHook{shipout/background}{
+  \begin{tikzpicture}[remember picture,overlay, shift={(current page.south west)}]
+   \path[fill=miugray2!15](0,0) rectangle (3.5cm,\paperheight);
+%   \path[fill=miugray2!8](0,0) rectangle (3.5cm,\paperheight);
+   \path[draw,miudiutex!50] (3.5,0) to (3.5,\paperheight);
+%   \path[draw,miudiutex!50,dashed] (3.5,0) to (3.5,\paperheight);  
+%   \node[opacity=0.8](a)at(12,10){\includegraphics[width=9cm]{F://LaTeX-Files/pngs/girl01}};
+  \end{tikzpicture} 
+}
+}
+
+
+\newcommand{\oddsidebar}{
+\AddToHook{shipout/background}{
+   \put(0in,-\paperheight){%
+      \ifodd\value{page}\relax
+           \begin{tikzpicture}[remember picture,overlay, shift={(current page.south west)}]
+   \path[fill=miugray2!15](0,0) rectangle (3.5cm,\paperheight);
+      \path[draw,miudiutex!50] (3.5,0) to (3.5,\paperheight);
+  \end{tikzpicture}
+      \else
+           \begin{tikzpicture}[remember picture,overlay, shift={(current page.south east)}]
+   \path[fill=miugray2!15](-3,0) rectangle (3cm,\paperheight);
+%      \path[draw,miudiutex!50] (-3.5,0) to (-3.5,\paperheight);
+  \end{tikzpicture}
+      \fi
+   }
+}
+}
+%================================
+% ENVIRONMENTS
+%================================
+
+\newenvironment{ctab}[2]{%
+				\begin{spacing}{#1}
+					\begin{center}
+					\begin{tabular}{#2}}
+					{\end{tabular}
+					\end{center}
+				\end{spacing}
+				}
+
+
+%================================
+% Farbiger-Background-Box
+%================================
+
+
+
+\newcommand{\farbig}[1]{
+\begin{tcolorbox}[%
+				hbox,
+				colback=miugray2!25,
+				boxsep=-2pt,
+				boxrule=0pt,
+				arc=0pt,
+				nobeforeafter,
+				tcbox raise base,
+				shrink tight,
+				extrude by=1pt
+				]
+				{\color{miudiutex}{#1}}
+\end{tcolorbox}~}
+
+%================================
+% SIMPLE SCHWARZER RAHMEN BOX
+%================================
+
+
+\newcommand{\boxfr}[1]{
+	\begin{tcolorbox}[
+	colframe=miugray2,
+	colback=white!95!miugray2,
+	boxrule = 0.5pt, 
+%	toprule=0pt, bottomrule=0pt,rightrule=0pt,leftrule=0pt,
+	boxsep=0pt,
+	arc=4pt,
+	drop shadow southeast,
+	enhanced
+	]
+	\color{miudiutex}
+	\begin{center}
+	#1
+	\end{center}
+	\end{tcolorbox}
+}
+
+%================================
+% Antwort-Box
+%================================
+
+%\newcommand{\antwort}[1]{\par 
+%	\begin{tcolorbox}[
+%	colback=gray!15,
+%	breakable,
+%	enhanced,
+%	frame hidden,
+%	arc=5pt,
+%	boxrule = 2pt,
+%%	borderline west = {2pt}{0pt}{petunidin},
+%%	drop shadow=miugray2!30
+%	]
+%	\color{miudiutex}	#1
+%	\end{tcolorbox}
+%}
+
+\newcommand{\antwort}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	enforce breakable,
+	standard jigsaw,
+	boxrule=0.7pt,
+	colframe=black,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily Antwort,
+	opacityback=0,
+	coltitle=miudiutex,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white},
+	bottomrule at break=0pt,
+	toprule at break=0pt,
+	pad at break=16mm,
+]
+	\begin{center}
+	#1
+	\end{center}
+	\end{tcolorbox}
+}
+
+
+
+
+%================================
+% Frame-IT
+%================================
+
+\newcommand{\frameit}[1]{\par 
+	\begin{tcolorbox}[
+	colback=gray!10,
+	breakable,
+	enhanced,
+	frame hidden,
+	arc=5pt,
+	boxrule = 0pt,
+	borderline west = {4pt}{0pt}{petunidin},
+%	drop shadow=miugray2!30
+	]
+		#1
+	\end{tcolorbox}
+}
+
+
+
+%================================
+% Question BOX
+%================================
+
+%\makeatletter
+%\newtcbtheorem{qstion}{Frage}{enhanced,
+%	breakable,
+%	colback=white,
+%	colframe=delphinidin!100,
+%%	capture=hbox,
+%	boxsep=-3pt,
+%	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+%	fonttitle=\bfseries,
+%%	title={#2},
+%	boxed title size=title,
+%	boxed title style={%
+%			sharp corners,
+%			rounded corners=northwest,
+%			colback=tcbcolframe,
+%			boxrule=0pt,
+%		},
+%	underlay boxed title={%
+%			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+%			to[out=0, in=180] ([xshift=5mm]title.east)--
+%			(title.center-|frame.east)
+%			[rounded corners=\kvtcb@arc] |-
+%			(frame.north) -| cycle;
+%		},
+%	#1
+%}{def}
+%\makeatother
+
+\newcommand{\qsbig}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	enforce breakable,
+	standard jigsaw,
+	boxrule=0.7pt,
+	colframe=miugray2,
+%	colback=miugray!20,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily Antwort,
+	opacityback=0,
+	coltitle=miudiutex,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white},
+	bottomrule at break=0pt,
+	toprule at break=0pt,
+	pad at break=16mm,
+]
+	\begin{center}
+	\color{miugray2}
+	#1
+	\end{center}
+	\end{tcolorbox}
+}
+
+
+
+%================================
+% SIMPLE Question BOX
+%================================
+
+\newcommand{\qssmall}{
+\begin{tcolorbox}[hbox,colback=miugray2!55,boxsep=-4pt,boxrule=0pt,arc=2pt,nobeforeafter, tcbox raise base,shrink tight,extrude by=3pt]
+\textbf{\color{white}{?}}
+\end{tcolorbox}~~}
+
+\newcommand{\folie}[1]{
+\begin{tcolorbox}[%
+				hbox,
+				colback=miugray2!20,
+				boxsep=2pt,
+				boxrule=0.5pt,
+				arc=2pt,
+				nobeforeafter,
+				tcbox raise base,
+				shrink tight,
+				extrude by=3pt]
+				{\color{miudiutex}{Folie #1}}
+\end{tcolorbox}~}
+
+
+%================================
+% NOTIZ BOX
+%================================
+
+\makeatletter
+\newtcbtheorem{notizz}{Notiz}{enhanced,
+	breakable,
+	coltitle=white,
+	colback=petunidin!10,
+	colframe=petunidin!50,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+%	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+		#1
+}{def}
+\makeatother
+
+
+
+%================================
+% Question BOX: Klausur
+%================================
+
+\makeatletter
+\newtcbtheorem[no counter]{klausurinfo}{Klausurrelevant}{enhanced,
+%	breakable,
+	colback=miugray2!10,
+	colframe=miugray2!75,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	arc=4pt,
+	boxrule=1pt,
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+			arc=4pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{def}
+\makeatother
+
+
+%================================
+% DEFINITION
+%================================
+
+\makeatletter
+\newtcbtheorem[no counter]{defin}{Definition}{enhanced,
+	breakable,
+	colback=gray!10,
+	colframe=gray,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	arc=4pt,
+	boxrule=1pt,
+	fontlower=\footnotesize,
+	collower=miugray2!50!miudiutex,
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+			arc=4pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{def}
+\makeatother
+
+%================================
+% Gesetzes-Text EU
+%================================
+
+\makeatletter
+\newtcbtheorem[no counter]{gestex}{EU - Verordnung}{enhanced,
+	breakable,
+	colback=gray!10,
+	colframe={gray!65!delphinidin},
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	arc=4pt,
+	boxsep=10pt,
+	boxrule=1pt,
+	fontlower=\footnotesize,
+	collower=miugray2!50!miudiutex,
+	boxed title size=title,
+	overlay={%
+			\node[xshift=-1cm,yshift=-1mm] at (frame.north east)
+			{\includegraphics[width=8mm]{F://LaTeX-Files/shiet/eu}};
+%			\node[draw,miugray2] at (frame.north) {{#2}}; 
+			},%
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+			arc=4pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{def}
+\makeatother
+
+
+%================================
+% Gesetzes-Text Ger
+%================================
+
+\makeatletter
+\newtcbtheorem[no counter]{gesgex}{Gesetzestext}{enhanced,
+	breakable,
+	colback=gray!10,
+	colframe={gray!95!pelargonidin},
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	arc=4pt,
+	boxrule=1pt,
+	fontlower=\footnotesize,
+	collower=miugray2!50!miudiutex,
+	boxed title size=title,
+	overlay={\node[xshift=-1cm,yshift=-3mm] at (frame.north east)
+			{\includegraphics[width=8mm]{F://LaTeX-Files/shiet/ger}}; 
+			},
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+			arc=4pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{def}
+\makeatother
+
+
+%================================
+% Question BOX: Wichtig
+%================================
+
+%\makeatletter
+%\newtcbtheorem[no counter]{wichtig}{Wichtige Info}{enhanced,
+%	breakable,
+%	colback=pelargonidin2!80,
+%	colframe=red2!100,
+%	fonttitle=\bfseries,
+%	title={#2},
+%	leftrule=5mm,
+%	boxed title size=title,
+%	boxed title style={%
+%			sharp corners,
+%			rounded corners=northwest,
+%			colback=tcbcolframe,
+%			boxrule=0pt,
+%		},
+%	underlay boxed title={%
+%			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+%			to[out=0, in=180] ([yshift=1mm,xshift=7mm]title.east)--
+%			([yshift=1mm]title.center-|frame.east)
+%			[rounded corners=\kvtcb@arc] |-
+%			(frame.north) -| cycle;
+%		},
+%		watermark tikz={\draw[line width=2mm] circle (1.1cm)
+%		node{\fontfamily{ptm}\fontseries{b}\fontsize{20mm}{20mm}\selectfont !};}],
+%	attach boxed title to top left={xshift=5mm,yshift*=-\tcboxedtitleheight},
+%	watermark zoom=0.65,
+%	  underlay={%
+%    \path[draw=none] (interior.south west) rectangle node[white]{\Huge \textbf{!}} ([xshift=-4mm]interior.north west);
+%    },
+%	#1
+%}{def}
+%\makeatother
+
+
+\makeatletter
+\newtcbtheorem[no counter]{wichtig}{Wichtige Info}{enhanced,
+	breakable,
+	colback=pelargonidin2!30,
+	colframe=petunidin!100,
+	fonttitle=\footnotesize\bfseries,
+	title={#2},
+	leftrule=4mm,
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northeast,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south east)--(title.south west)
+			to[out=180, in=0] ([yshift=2mm,xshift=-7mm]title.west)--
+			([yshift=2mm]title.center-|frame.west)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+		watermark tikz={\draw[line width=2mm] circle (1.1cm)
+		node{\fontfamily{ptm}\fontseries{b}\fontsize{20mm}{20mm}\selectfont !};},
+	attach boxed title to top right={yshift*=-\tcboxedtitleheight},
+	watermark zoom=1.45,
+	watermark opacity=0.35,
+	  underlay={%
+    \path[draw=none] (interior.south west) rectangle node[white]{\LARGE \textbf{!}} ([xshift=-4.3mm]interior.north west);
+    },
+    #1
+}{def}
+\makeatother
+
+
+
+
+
+%================================
+% ZITAT BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{zitat}{Zitat}
+{%
+	enhanced,
+	breakable,
+	colback = gray!10!white,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{petunidin},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = gray!50!black,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, gray!50!black},
+}
+{th}
+
+

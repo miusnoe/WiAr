@@ -1,0 +1,48 @@
+\usepackage[%
+  style=ext-authoryear-tecomp,
+  backend=biber,
+%  introcite=plain,
+  natbib=true,
+  citetracker=true,
+  maxcitenames=2,
+  maxbibnames=1000,
+  isbn = false,
+  eprint =false,
+  doi = true,
+  url = false, 
+  giveninits=true, 
+  citestyle=authoryear,
+  uniquename=init,
+]{biblatex}
+
+\AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{3}}}
+
+\DeclareFieldFormat[inbook,article]{citetitle}{#1} %Entfernt Quotation Marks in Titel
+\DeclareFieldFormat[inbook,article]{title}{#1} %Entfernt Quotation Marks in Titel
+
+
+%%%% ABSTAND LITERATURVERZEICHNIS
+\setlength{\bibhang}{10mm}
+\setlength{\bibitemsep}{5pt}
+
+
+%\setlength{\introcitewidth}{10pt}
+%\setlength{\introcitesep}{12pt}
+
+\renewbibmacro{in:}{}
+%\renewbibmacro{URL:}{}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+
+\DeclareDelimFormat[parencite]{finalnamedelim}{\addspace\&\space}
+%\DeclareNameAlias{default}{family-given}
+\DeclareNameAlias{sortname}{family-given}
+
+
+
+\DefineBibliographyStrings{ngerman}{
+   andothers = {{et\,al\adddot}},
+%   pages = {},
+}
+
+\usepackage{csquotes} % Für Error Message beheben
