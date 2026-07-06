@@ -13,21 +13,23 @@
 
 \node (r1left) at (-3.25cm, 8.0cm) [draw, textrect, minimum height=3.5cm]
   {Records identified from Database 'Google Scholar'
-		($n=297$) \vspace*{2mm}
- \\ Search-string 1 ($n=167$)
+		($n=595$) \vspace*{2mm} %297
+ \\ Search-string 1 ($n=216$) %167 + 49
  \\{\tiny \itshape 'micronutrient\S' AND 'ambient storage' AND 'fortified' -fruits}
- \\ Search-string 2 ($n=130$)
- \\{\tiny \itshape 'micronutrient\S stability' AND 'micronutrient\S retention' AND 'food fortification'}
-  };
+ \\ Search-string 2 ($n=147$) %134
+ \\{\tiny \itshape 'micronutrient\S $~$stability' OR 'micronutrient\S $~$retention' AND 'food fortification'}
+  \\ Search-string 3 ($n=232$) 
+ \\{\tiny \itshape 'fortification' AND 'micronutrient retention'
+  }};
 
 \node (r1right) at (3.25, 8.0cm) [draw, textrect, minimum height=3cm]
-  {Records removed \textit{before screening} ($n=173$)
+  {Records removed \textit{before screening} ($n=224$) %173 
     \begin{itemize}
-    \item Duplicate records removed ($n=0$)
-	\item through Journal-Ranking ($n=144$)
-	    %vorher ($n=114$) und jetzt + 30
+    \item Duplicate records removed ($n=46$) %0
+	\item through Journal-Ranking ($n=247$) %% DAS STIMMT NICHT IST NUR DIE DIFFERENZ AUS SCREENED UND IDENTIFIED. ES WAR 144
+	    %vorher ($n=114$) und jetzt + 30 %%% v2: 144
 	\item Theses and books ($n=25$)
-    \item Records not written in english  ($n=4$)
+    \item Records not written in english  ($n=9$) %4
     %vorher nicht englisch = 2 jetzt 2+2=4
     \end{itemize} 
   };
