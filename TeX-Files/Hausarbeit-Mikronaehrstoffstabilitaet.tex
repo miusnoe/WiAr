@@ -85,7 +85,9 @@
 \thispagestyle{empty}
 
 \tableofcontents
-
+\pagebreak
+\listoffigures
+\listoftables
 
 \pagebreak
 
@@ -98,15 +100,15 @@
 \input{chapter/theoreticalback.tex}
 
 
-%\pagebreak
+\pagebreak
 \section{Methods}
 \input{chapter/methods.tex}
-\pp
-%\pagebreak
+%\pp
+\pagebreak
 
 \begin{figure}[h]
 \centering
-\resizebox{.5\textwidth}{!}{
+\resizebox{.8\textwidth}{!}{
 \input{chapter/prismaflow.tex}
 }
 \caption{PRISMA-Flowchart}
@@ -123,6 +125,8 @@
 \input{chapter/results_process}
 \subsection{Results of storage conditions}
 \input{chapter/results_storage}
+
+\pagebreak
 \section{Discussion}
 \subsection{Summary and interpretation of the results - process factors}
 \input{chapter/results_process_summary}
@@ -133,6 +137,7 @@
 \input{chapter/limit}
 
 
+\pagebreak
 \section{Conclusion}
 %\boxfr{\Large \color{red} In der Conclusion werden wir wahrscheinlich schreiben, dass das Thema immernoch unzureichend erforscht ist. Es gibt Hinweise, dass Interaktionen zwischen verschiedenen Anreicherungsverfahren stattfinden aber unzureichende quantitive und qualitative Daten. }
 \input{chapter/conc}
@@ -143,7 +148,7 @@
 
 
 
-
+\pagebreak
 \printbibliography[heading=bibintoc]
 
 \pagebreak
@@ -165,17 +170,20 @@
 \toprule
 \textbf{\#}&\textbf{Authors/Year} & \textbf{Food vehicle} & \textbf{Topic} \\ \midrule
 &\multicolumn{3}{l}{\textit{Search String 2}} \\ \midrule
-1& \cite{sharma} & Pasta &  Influence of different storage condtions on vitamin retention \\
-2& \cite{chepkoech} & Maize Flour & Influence of different storage conditions on vitamin retention \\ 
-3& \cite{li2coatsalt} & Salt, Bouillon Cubes & Potential influence of physical properties like shape and coating thickness of granules \\ 
-4& \cite{li3capsalt} & Salt & Influence of different storage conditions on capsulated iron in salt \\ 
-5& \cite{li4daylight} & Sunflower Oil & Ambient storage with and without daylight \\ 
-6& \cite{li5cocoyam} & Cocoyam leaves & Influence of different storage conditions on nutritional properties \\
+$~$1& \cite{sharma} & Pasta &  Influence of different storage condtions on vitamin retention \\
+$~$2& \cite{chepkoech} & Maize Flour & Influence of different storage conditions on vitamin retention \\ 
+$~$3& \cite{li2coatsalt} & Salt, Bouillon Cubes & Potential influence of physical properties like shape and coating thickness of granules \\ 
+$~$4& \cite{li3capsalt} & Salt & Influence of different storage conditions on capsulated iron in salt \\ 
+$~$5& \cite{li4daylight} & Sunflower Oil & Ambient storage with and without daylight \\ 
+$~$6& \cite{li5cocoyam} & Cocoyam leaves & Influence of different storage conditions on nutritional properties \\
 \midrule
 &\multicolumn{3}{l}{\textit{Search String 1}} \\ \midrule
-7 & \cite{noodle} & Pasta & Influence of catfish powder and cooking method on ambient storage stability \\
-8 & \cite{cookie} & Baked Goods (Cookies) & Influence of different storage conditions on macro- and micronutrient retention \\
-9 & \cite{gari} & Gari (Cassava Flour) & Vitamin A retention \\ \bottomrule
+$~$7 & \cite{noodle} & Pasta & Influence of catfish powder and cooking method on ambient storage stability \\
+$~$8 & \cite{cookie} & Baked Goods (Cookies) & Influence of different storage conditions on macro- and micronutrient retention \\
+$~$9 & \cite{gari} & Gari (Cassava Flour) & Vitamin A retention in gari \\ 
+10 & \cite{saha} & Rice & Compositional considerations to optimize retention \\
+11 & \cite{dutta} & Maize Hybrids & Effect of storage period on biofortificated maize hybrids \\
+\bottomrule
 \end{tabular}
 
 \end{spacing}
